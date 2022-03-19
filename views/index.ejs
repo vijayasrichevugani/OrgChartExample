@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/> 
+  </head>
+  <body>
+    <script src = "/js/d3.v7.min.js"></script>
+    <script src = "/js/d3-org-chart.js"></script>
+    <script src = "/js/d3-flextree.min.js"></script>
+    <div class = "topnav" style = "overflow: hidden; background-color: bisque;">
+      <div style="text-align: center; font-size: 50px;width: auto;margin-top: 20px;margin-left: 330px;margin-bottom: 10px;color:aquamarine">
+        Org Chart Example using D3 JS  
+      </div>
+      <form style : "float:right;background-color:white">
+        <label>Select a value</label>
+        <select>
+          <option value = "supplier">supplier</option>
+          <option value = "client">client</option>
+        </select>
+      </form>
+    </div>
+
+    <div class = "chart-container" oncontextmenu="return false" onkeydown="return false" onmousedown="return false" style="background-color: white;"></div>
+    
+    <script>
+      var chart;
+      var data = <%- data %>;
+      chart = new d3.OrgChart()
+        .container('.chart-container')
+        .data(data)
+        .nodeContent(d => {
+          console.log(d.data);
+          const colors = ['#27888D','#404040', '#0C5C73','#33C6CB']
+          var client = d.data.client;
+          var supplier = d.data.supplier;
+          console.log(client);
+          console.log(supplier);
+          var color = (client == 'Y')?"#dcd0ff":((supplier == 'Y')? "#a0d6b4":"#E6E2DD");
+          return `
+            <div class = "column" style = "color:#2A2A2A, background-color:${color}; height:150px;text-align:center;margin-top:-30px;border-color:black;font-family:"Lucida Grande";display:none;">
+              <div style = "margin-left:10px;margin-top:30px;padding-top:20px;font-size:14px;font-weight:12px;font-family:"HelveticaNeue-Light"">
+                <p>Primary Name: ${d.data.du_primaryName}</p>
+              </div>
+
+              <div style = "margin-left:10px;margin-top:30px;padding-top:20px;font-size:14px;font-weight:12px;font-family:"HelveticaNeue-Light"">
+                <p>Country: ${d.data.Country} </p>
+              </div>
+
+              <div style = "margin-left:10px;margin-top:30px;padding-top:20px;font-size:14px;font-weight:12px; font-family:"HelveticaNeue-Light";">
+                <p>Domestic Duns: ${d.data.id}</p>
+              </div>
+            </div>
+            `;
+          })
+          .render();
+    </script>
+  </body>
+</html>
