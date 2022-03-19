@@ -1,0 +1,19 @@
+{
+  "name": "lang-redirect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies":{
+    "d3":"^7.3.0",
+    "ejs":"^3.1.6",
+    "express":"^4.17.3",
+    "mssql":"^8.0.2"
+  }
+}

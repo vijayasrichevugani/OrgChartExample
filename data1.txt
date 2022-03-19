@@ -1,0 +1,5 @@
+globalUltimate_duns|domesticUltimate_duns|gu_primaryName|du_primaryName|Country|supplier|client
+NULL|1211162|KFC Inc.|KFC Inc.|United States|Y|N
+1211162|111301542|KFC Inc.|Snack Food Investments|UK|N|Y
+1211162|686121111|KFC Inc.|Snack Food Investments|Japan|N|Y
+1311181|216211119|Pearson|Master of America Corporation|India|N|Y
